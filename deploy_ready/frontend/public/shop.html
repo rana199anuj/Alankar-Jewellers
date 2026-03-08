@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop - Alankar Jewellers</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <style>
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 40px;
+      padding: 60px 0;
+    }
+
+    .sidebar-filter {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      height: fit-content;
+    }
+
+    .sidebar-filter h3 {
+      margin-bottom: 20px;
+      font-size: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .sidebar-filter ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-filter li {
+      margin-bottom: 12px;
+    }
+
+    .sidebar-filter a {
+      color: var(--text);
+      opacity: 0.8;
+      font-size: 15px;
+    }
+
+    .sidebar-filter a:hover,
+    .sidebar-filter a.active {
+      color: var(--accent);
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    .price-range input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .shop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .pager {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .pager button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      cursor: pointer;
+    }
+
+    .pager button.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .shop-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-filter {
+        display: none;
+      }
+
+      /* Simplified for mobile for now */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="index.html" class="logo">ALANKAR <span>JEWELLERS</span></a>
+      </div>
+      <nav class="main-nav">
+        <div class="nav-inner">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-right">
+        <a class="header-action" href="cart.html"><i class="fa fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero" style="padding: 60px 0;">
+    <div class="container">
+      <h1>Our Collection</h1>
+      <p>Explore our exclusive range of jewelry</p>
+    </div>
+  </section>
+
+  <!-- Shop Content -->
+  <div class="container shop-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar-filter">
+      <h3>Categories</h3>
+      <ul id="categoryList">
+        <!-- Injected via JS -->
+        <li><a href="#" class="active">All Jewelry</a></li>
+        <li><a href="#">Loading...</a></li>
+      </ul>
+
+      <h3>Filter by Price</h3>
+      <div class="price-range">
+        <div id="priceLabel" style="margin-bottom:10px; font-size:14px;">Price: ₹0 — ₹5,00,000</div>
+        <input type="number" id="priceMin" placeholder="Min" value="0">
+        <input type="number" id="priceMax" placeholder="Max" value="500000">
+        <button id="applyPrice" class="btn btn-sm" style="width:100%; margin-top:10px;">Apply</button>
+      </div>
+
+      <button id="clearFilters" class="btn ghost btn-sm" style="width:100%; margin-top:20px;">Clear Filters</button>
+    </aside>
+
+    <!-- Grid -->
+    <main>
+      <div class="shop-header">
+        <div id="resultsText">Showing 0 products</div>
+        <select id="sortSelect" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+          <option value="default">Default Sorting</option>
+          <option value="newest">Newest First</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <div id="productsGrid" class="products-grid">
+        <!-- Products Injected -->
+      </div>
+
+      <div class="pager" id="pager">
+        <!-- Pagination -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="col">
+        <h4>Alankar Jewellers</h4>
+        <p style="color:#aaa">The Art of Elegance.</p>
+      </div>
+      <div class="col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Contact</h4>
+        <p style="color:#aaa">+91 7248131691</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Social Bar -->
+  <div class="social-float">
+    <a href="https://wa.me/917248131691?text=Hello%20Alankar%20Jewellers" target="_blank"
+      class="social-item social-whatsapp" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://facebook.com" target="_blank" class="social-item social-facebook" title="Follow on Facebook"><i
+        class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="social-item social-instagram"
+      title="Follow on Instagram"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>

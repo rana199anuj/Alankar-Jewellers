@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alankar Jewellers</title>
+
+  <!-- Swiper (carousel) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity=""
+    crossorigin="anonymous" />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+</head>
+
+<body>
+
+  <!-- top thin bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="top-left">Welcome to <strong>Alankar Jewellers</strong></div>
+      <div class="top-right">Call: +91 7248131691 | <a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="index.html" class="logo">ALANKAR <span>JEWELLERS</span></a>
+      </div>
+
+      <div class="header-right">
+        <a class="header-action" href="admin.html"><i class="fa fa-user"></i> <span class="hide-sm">Sign In</span></a>
+        <a class="header-action" href="#"><i class="fa-regular fa-heart"></i> <span class="hide-sm">Wishlist</span></a>
+        <a class="header-action" href="cart.html"><i class="fa fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+      </div>
+    </div>
+
+    <!-- main nav -->
+    <nav class="main-nav">
+      <div class="container nav-inner">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search overlay -->
+  <!-- Search overlay removed -->
+
+  <!-- HERO: Swiper -->
+  <section class="hero">
+    <div class="container-fluid">
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper" id="heroSlides">
+          <!-- slides injected from JS or fallback below -->
+          <div class="swiper-slide">
+            <img src="images/hero-placeholder.jpg" alt="hero" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New arrivals carousel -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">New Arrivals</h2>
+      <p class="section-sub">Collect your loves with our newest arrivals.</p>
+
+      <div class="swiper arrivals-swiper">
+        <div class="swiper-wrapper" id="arrivalsWrapper">
+          <!-- product cards injected via JS -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories / Featured -->
+  <section id="shop" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <div id="featuredGrid" class="products-grid">
+        <!-- injected -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo banners -->
+  <section class="section-light promo-grid container">
+    <div class="promo">
+      <img src="images/promo-ring.jpg" alt="rings">
+      <a class="promo-label" href="#">Shop Rings</a>
+    </div>
+    <div class="promo">
+      <img src="images/promo-pendant.jpg" alt="pendants">
+      <a class="promo-label" href="#">Shop Pendants</a>
+    </div>
+  </section>
+
+  <!-- Reviews slider -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Customer Reviews</h2>
+      <div class="swiper reviews-swiper">
+        <div class="swiper-wrapper" id="reviewsWrapper">
+          <!-- review slides injected -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="col">
+        <h4>Our Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="col footer-center">
+        <img src="images/logo-footer.png" alt="Alankar Logo" class="footer-logo" />
+        <p>Browse through our exclusive design collection</p>
+        <p><strong>Phone:</strong> +91 98XXXXXXXX</p>
+      </div>
+      <div class="col">
+        <h4>Newsletter</h4>
+        <p>Sign up for latest offers</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Your email" required />
+          <button class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="pay-logos">
+          <img src="images/payments.png" alt="payments" />
+        </div>
+        <div class="copyright">© <span id="year"></span> Alankar Jewellers. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Social Bar -->
+  <div class="social-float">
+    <a href="https://wa.me/917248131691?text=Hello%20Alankar%20Jewellers" target="_blank"
+      class="social-item social-whatsapp" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://facebook.com" target="_blank" class="social-item social-facebook" title="Follow on Facebook"><i
+        class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="social-item social-instagram"
+      title="Follow on Instagram"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <!-- Scroll to top -->
+  <button id="scrollTop" class="scroll-top" title="Top"><i class="fa fa-chevron-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alankar Jewellers — The Art of Elegance</title>
+  <meta name="description" content="Alankar Jewellers — Discover our exclusive collection of gold, diamond and silver jewellery handcrafted by master artisans. Shop rings, necklaces, bangles and more." />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span class="announcement-item"><i class="fa fa-truck"></i> Free Shipping on Orders Above ₹5,000</span>
+      <span class="announcement-item"><i class="fa fa-gem"></i> BIS Hallmarked Gold — Guaranteed Purity</span>
+      <span class="announcement-item"><i class="fa fa-shield-halved"></i> Certified Jewellers Since 1995</span>
+      <span class="announcement-item"><i class="fa fa-phone"></i> Call Us: +91 9411042260</span>
+      <span class="announcement-item"><i class="fa fa-rotate"></i> 30-Day Exchange Policy</span>
+      <span class="announcement-item"><i class="fa fa-truck"></i> Free Shipping on Orders Above ₹5,000</span>
+      <span class="announcement-item"><i class="fa fa-gem"></i> BIS Hallmarked Gold — Guaranteed Purity</span>
+      <span class="announcement-item"><i class="fa fa-shield-halved"></i> Certified Jewellers Since 1995</span>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo-footer.png" alt="Alankar Jewellers">
+      </a>
+
+      <nav class="main-nav">
+        <div class="nav-inner">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fa fa-moon"></i></button>
+        <a class="header-action" href="cart.html" title="Cart" style="position:relative;">
+          <i class="fa fa-shopping-bag"></i>
+          <span class="hide-sm">Cart</span>
+          <span class="cart-badge" id="cartCount">0</span>
+        </a>
+        <a href="admin.html" class="admin-header-btn" title="Admin Panel">
+          <i class="fa fa-user-shield"></i> <span>Admin</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper" id="heroSlides">
+        <!-- Fallback slide -->
+        <div class="swiper-slide">
+          <img src="images/hero-1.jpg" alt="Alankar Jewellers Collection" loading="eager"/>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <div class="hero-tag"><i class="fa fa-gem"></i> &nbsp;New Collection 2025</div>
+            <h1>Crafted for <em>Timeless</em> Elegance</h1>
+            <p>Discover jewellery that tells your story — handcrafted with certified gold, diamonds & precious stones.</p>
+            <div class="hero-cta">
+              <a href="shop.html" class="btn"><i class="fa fa-shopping-bag"></i> Explore Collection</a>
+              <a href="about.html" class="btn btn-outline">Our Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP BY CATEGORY ===== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Browse Collection</span>
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="gold-divider" style="margin-top:16px;"></div>
+      </div>
+      <div class="categories-grid" id="categoriesGrid">
+        <!-- Fallback categories shown until API loads -->
+        <a href="shop.html?cat=rings" class="cat-item reveal reveal-delay-1">
+          <div class="cat-icon"><i class="fa fa-ring"></i></div>
+          <span>Rings</span>
+        </a>
+        <a href="shop.html?cat=necklaces" class="cat-item reveal reveal-delay-2">
+          <div class="cat-icon"><i class="fa fa-circle"></i></div>
+          <span>Necklaces</span>
+        </a>
+        <a href="shop.html?cat=earrings" class="cat-item reveal reveal-delay-3">
+          <div class="cat-icon"><i class="fa fa-star"></i></div>
+          <span>Earrings</span>
+        </a>
+        <a href="shop.html?cat=bangles" class="cat-item reveal reveal-delay-4">
+          <div class="cat-icon"><i class="fa fa-gem"></i></div>
+          <span>Bangles</span>
+        </a>
+        <a href="shop.html?cat=pendants" class="cat-item reveal reveal-delay-1">
+          <div class="cat-icon"><i class="fa fa-heart"></i></div>
+          <span>Pendants</span>
+        </a>
+        <a href="shop.html?cat=bracelets" class="cat-item reveal reveal-delay-2">
+          <div class="cat-icon"><i class="fa fa-link"></i></div>
+          <span>Bracelets</span>
+        </a>
+        <a href="shop.html?cat=mangalsutra" class="cat-item reveal reveal-delay-3">
+          <div class="cat-icon"><i class="fa fa-infinity"></i></div>
+          <span>Mangalsutra</span>
+        </a>
+        <a href="shop.html" class="cat-item reveal reveal-delay-4">
+          <div class="cat-icon"><i class="fa fa-th-large"></i></div>
+          <span>All Items</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEW ARRIVALS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Fresh In</span>
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="gold-divider" style="margin-top:16px;"></div>
+        <p class="section-sub" style="margin-top:14px;">Our newest handcrafted pieces, just added to the collection.</p>
+      </div>
+      <div class="swiper arrivals-swiper">
+        <div class="swiper-wrapper" id="arrivalsWrapper">
+          <!-- Injected by JS -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="shop.html" class="btn btn-outline">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="section section-light" id="shop">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Curated Picks</span>
+        <h2 class="section-title">Featured Products</h2>
+        <div class="gold-divider" style="margin-top:16px;"></div>
+      </div>
+      <div id="featuredGrid" class="products-grid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Promise</span>
+        <h2 class="section-title">Why Choose Alankar?</h2>
+        <div class="gold-divider" style="margin-top:16px;"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon"><i class="fa fa-gem"></i></div>
+          <h3>Certified Purity</h3>
+          <p>All our gold jewellery is BIS 916 hallmarked, guaranteeing the highest purity standards.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon"><i class="fa fa-hand-holding-heart"></i></div>
+          <h3>Master Craftsmanship</h3>
+          <p>Every piece is hand-finished by our karigars with decades of traditional expertise.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon"><i class="fa fa-rotate"></i></div>
+          <h3>Easy Exchange</h3>
+          <p>30-day hassle-free exchange policy. We stand behind every piece we create.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4">
+          <div class="feature-icon"><i class="fa fa-shield-halved"></i></div>
+          <h3>Lifetime Trust</h3>
+          <p>Serving families since 1995 — generations of customers trust our name and quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="section-dark" style="padding:0;">
+    <div class="stats-grid container" style="max-width:100%;">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-count="30">0</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number" data-count="5000">0</div>
+        <div class="stat-label">Unique Designs</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number" data-count="10000">0</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Certified Gold</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROMO BANNERS ===== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="promo-grid" id="promoBanners">
+        <div class="promo reveal">
+          <img src="images/hero-2.jpg" alt="Shop Rings">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <h3>Exquisite Rings</h3>
+            <a href="shop.html?cat=rings" class="btn btn-sm">Shop Rings</a>
+          </div>
+        </div>
+        <div class="promo reveal reveal-delay-1">
+          <img src="images/hero-3.jpg" alt="Shop Necklaces">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <h3>Royal Necklaces</h3>
+            <a href="shop.html?cat=necklaces" class="btn btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOMER REVIEWS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="gold-divider" style="margin-top:16px;"></div>
+      </div>
+      <div class="swiper reviews-swiper">
+        <div class="swiper-wrapper" id="reviewsWrapper">
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-quote-icon">"</span>
+              <p class="review-text">The craftsmanship is absolutely stunning. My wedding set from Alankar Jewellers is exactly what I dreamed of. The attention to detail is extraordinary.</p>
+              <div class="review-author">Priya Sharma</div>
+              <div class="review-role">Bride, Delhi</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-quote-icon">"</span>
+              <p class="review-text">Bought a gold necklace for my mother's anniversary. The quality is exceptional and the team was so helpful. Will definitely recommend Alankar to everyone!</p>
+              <div class="review-author">Ramesh Gupta</div>
+              <div class="review-role">Customer, Lucknow</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-quote-icon">"</span>
+              <p class="review-text">Outstanding quality and very fair pricing. The BIS hallmarked guarantee gives me peace of mind. This is my family's go-to jewellery store.</p>
+              <div class="review-author">Meena Yadav</div>
+              <div class="review-role">Regular Customer, Noorpur</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-quote-icon">"</span>
+              <p class="review-text">I've been buying jewellery here for over 10 years. The designs are always unique, the gold is pure and the service is always warm and professional.</p>
+              <div class="review-author">Sunita Singh</div>
+              <div class="review-role">Loyal Customer, UP</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-strip">
+    <div class="container" style="position:relative;z-index:2;">
+      <span class="section-label" style="color:var(--gold);">Stay Connected</span>
+      <h2>Get Exclusive Offers & Updates</h2>
+      <p>Subscribe to our newsletter for new arrivals, special offers and jewellery care tips.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email address" required />
+        <button type="submit" class="btn"><i class="fa fa-envelope"></i> Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-footer.png" alt="Alankar Jewellers" class="footer-logo" />
+          <p>The Art of Elegance — crafting timeless jewellery since 1995. Visit our showroom in Noorpur to experience the finest gold & diamond collections.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/917248131691" target="_blank" class="wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank" class="fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Our Collection</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?cat=rings">Rings</a></li>
+            <li><a href="shop.html?cat=necklaces">Necklaces</a></li>
+            <li><a href="shop.html?cat=earrings">Earrings</a></li>
+            <li><a href="shop.html?cat=bangles">Bangles</a></li>
+            <li><a href="shop.html?cat=mangalsutra">Mangalsutra</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact Us</h4>
+          <p><i class="fa fa-location-dot"></i> Main Market, Noorpur, UP — 246734</p>
+          <p><i class="fa fa-phone"></i> +91 9411042260</p>
+          <p><i class="fa fa-phone"></i> +91 6395717811</p>
+          <p><i class="fa fa-envelope"></i> info@alankarjewellers.com</p>
+          <p><i class="fa fa-clock"></i> Tue–Sun: 9 AM – 8 PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <div class="copyright">© <span id="year"></span> Alankar Jewellers. All Rights Reserved.</div>
+        <div class="pay-logos">
+          <img src="images/payments.png" alt="Payment methods" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Social -->
+  <div class="social-float">
+    <a href="https://wa.me/917248131691?text=Hello%20Alankar%20Jewellers" target="_blank" class="social-item social-whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://facebook.com" target="_blank" class="social-item social-facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="social-item social-instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <!-- Scroll Top -->
+  <button id="scrollTop" class="scroll-top" title="Back to top"><i class="fa fa-chevron-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

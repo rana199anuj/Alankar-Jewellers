@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Alankar Jewellers</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/admin.css?v=2">
+</head>
+
+<body>
+
+  <!-- LOGIN SECTION -->
+  <div id="loginSection" class="login-wrap">
+    <div class="login-box">
+      <h2>Alankar Admin</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD SECTION -->
+  <div id="dashboardSection" class="admin-layout" style="display: none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        ALANKAR
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="#" onclick="switchTab('products')" class="active" id="nav-products"><i class="fa fa-box"></i>
+            Products</a></li>
+        <li><a href="#" onclick="switchTab('categories')" id="nav-categories"><i class="fa fa-tags"></i> Categories</a>
+        </li>
+        <li><a href="#" onclick="switchTab('banners')" id="nav-banners"><i class="fa fa-image"></i> Banners</a></li>
+        <li><a href="#" id="nav-orders"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn btn-danger btn-sm" style="width:100%">Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content: Products -->
+    <main id="productsView" class="main-content">
+      <div class="content-header">
+        <h1>Product Management</h1>
+        <button id="addProductBtn" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Product</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Main Content: Categories (Hidden by default) -->
+    <main id="categoriesView" class="main-content" style="display:none;">
+      <div class="content-header">
+        <h1>Category Management</h1>
+        <button id="addCatBtn" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</button>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="categoryTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Main Content: Banners (Hidden by default) -->
+    <main id="bannersView" class="main-content" style="display:none;">
+      <div class="content-header">
+        <h1>Website Banners</h1>
+      </div>
+
+      <!-- Hero Slider Section -->
+      <div class="table-card" style="margin-bottom: 30px;">
+        <div class="card-header"
+          style="padding:15px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+          <h3>Hero Slider Images</h3>
+          <button class="btn btn-sm" onclick="openBannerModal('hero')">+ Add Slide</button>
+        </div>
+        <div id="heroList"
+          style="display:grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap:15px; padding:15px;">
+          <!-- Hero images injected here -->
+        </div>
+      </div>
+
+      <!-- Promo Banners Section -->
+      <div class="table-card">
+        <div class="card-header"
+          style="padding:15px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+          <h3>Promo Banners</h3>
+          <p>Use "promo1" (Left) and "promo2" (Right) as sections.</p>
+          <button class="btn btn-sm" onclick="openBannerModal('promo')">+ Add Promo</button>
+        </div>
+        <div id="promoList"
+          style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:15px; padding:15px;">
+          <!-- Promo images injected here -->
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div id="productModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Product</h2>
+        <button id="closeModalBtn" class="btn btn-sm"><i class="fa fa-times"></i></button>
+      </div>
+
+      <form id="productForm">
+        <input type="hidden" name="id" id="prodId">
+
+        <div class="form-group">
+          <label>Product Title</label>
+          <input type="text" name="title" id="prodTitle" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price (₹)</label>
+            <input type="number" name="price" id="prodPrice" required>
+          </div>
+          <div class="form-group">
+            <label>Stock</label>
+            <input type="number" name="stock" id="prodStock" value="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <div style="display:flex; gap:10px;">
+            <select name="category" id="prodCategory" style="flex:1;">
+              <option value="">None</option>
+              <!-- Injected -->
+            </select>
+            <button type="button" class="btn btn-sm btn-ghost" onclick="openCatModal()">+</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea name="desc" id="prodDesc" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Images</label>
+          <input type="file" name="images" id="prodImages" multiple accept="image/*">
+          <div id="imagePreview" class="preview-area"></div>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="featured" id="prodFeatured"> Featured Product
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%">Save Product</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="catModal" class="modal-overlay">
+    <div class="modal-box" style="max-width:400px;">
+      <div class="modal-header">
+        <h2 id="catModalTitle">Add Category</h2>
+        <button onclick="document.getElementById('catModal').classList.remove('open')" class="btn btn-sm"><i
+            class="fa fa-times"></i></button>
+      </div>
+      <form id="catForm">
+        <input type="hidden" name="id" id="catId">
+        <div class="form-group">
+          <label>Category Name</label>
+          <input type="text" name="name" id="catName" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Save Category</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- BANNER MODAL -->
+  <div id="bannerModal" class="modal-overlay">
+    <div class="modal-box" style="max-width:400px;">
+      <div class="modal-header">
+        <h2 id="bannerModalTitle">Add Banner</h2>
+        <button onclick="document.getElementById('bannerModal').classList.remove('open')" class="btn btn-sm"><i
+            class="fa fa-times"></i></button>
+      </div>
+      <form id="bannerForm">
+        <div class="form-group">
+          <label>Section</label>
+          <select name="section" id="bannerSection" required>
+            <option value="hero">Hero Slider</option>
+            <option value="promo">Promo (Generic)</option>
+          </select>
+        </div>
+        <!-- Hidden input for promo specific logic if needed, but simple select is better -->
+
+        <div class="form-group" id="promoTypeGroup" style="display:none;">
+          <label>Promo Position</label>
+          <select id="promoType">
+            <option value="promo1">Left Banner (Shop Rings)</option>
+            <option value="promo2">Right Banner (Shop Pendants)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Image</label>
+          <input type="file" name="image" id="bannerImage" required accept="image/*">
+        </div>
+        <div class="form-group">
+          <label>Link (Optional)</label>
+          <input type="text" name="link" id="bannerLink" placeholder="e.g. shop.html?cat=rings">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Upload</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js?v=4"></script>
+</body>
+
+</html>

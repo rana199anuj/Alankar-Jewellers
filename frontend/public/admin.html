@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Alankar Jewellers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <!-- ===== LOGIN ===== -->
+  <div id="loginSection" class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="images/logo-footer.png" alt="Alankar Jewellers" onerror="this.style.display='none'">
+        <h1>Admin Portal</h1>
+        <p>Alankar Jewellers Management</p>
+      </div>
+      <form id="loginForm">
+        <div class="login-field">
+          <label>Email Address</label>
+          <div class="field-wrap"><i class="fa fa-envelope"></i>
+            <input type="email" id="email" placeholder="admin@alankarjewellers.com" required>
+          </div>
+        </div>
+        <div class="login-field">
+          <label>Password</label>
+          <div class="field-wrap"><i class="fa fa-lock"></i>
+            <input type="password" id="password" placeholder="••••••••" required>
+          </div>
+        </div>
+        <div id="loginError" class="login-error" style="display:none;"></div>
+        <button type="submit" class="btn-login" id="loginBtn">
+          <span>Sign In</span><i class="fa fa-arrow-right"></i>
+        </button>
+      </form>
+      <a href="index.html" class="back-link"><i class="fa fa-arrow-left"></i> Back to Website</a>
+    </div>
+  </div>
+
+  <!-- ===== DASHBOARD ===== -->
+  <div id="dashboardSection" class="admin-layout" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="images/logo-footer.png" alt="Alankar" onerror="this.style.display='none'">
+        <span>Admin</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-label">Management</div>
+        <a href="#" onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-item active">
+          <i class="fa fa-chart-pie"></i><span>Dashboard</span>
+        </a>
+        <a href="#" onclick="switchTab('products')" id="nav-products" class="nav-item">
+          <i class="fa fa-box"></i><span>Products</span>
+        </a>
+        <a href="#" onclick="switchTab('categories')" id="nav-categories" class="nav-item">
+          <i class="fa fa-tags"></i><span>Categories</span>
+        </a>
+        <a href="#" onclick="switchTab('banners')" id="nav-banners" class="nav-item">
+          <i class="fa fa-image"></i><span>Banners</span>
+        </a>
+        <a href="#" onclick="switchTab('orders')" id="nav-orders" class="nav-item">
+          <i class="fa fa-shopping-cart"></i><span>Orders</span>
+          <span class="nav-badge" id="ordersBadge" style="display:none;"></span>
+        </a>
+        <div class="nav-label" style="margin-top:20px;">Settings</div>
+        <a href="index.html" class="nav-item">
+          <i class="fa fa-globe"></i><span>View Website</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar"><i class="fa fa-user"></i></div>
+          <div>
+            <div class="user-name">Administrator</div>
+            <div class="user-role">Alankar Jewellers</div>
+          </div>
+        </div>
+        <button id="logoutBtn" class="logout-btn" title="Logout"><i class="fa fa-sign-out-alt"></i></button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+
+      <!-- Top Bar -->
+      <header class="admin-header">
+        <div class="admin-header-left">
+          <button class="sidebar-toggle" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+          <div class="page-title" id="pageTitle">Dashboard</div>
+        </div>
+        <div class="admin-header-right">
+          <div class="header-time" id="headerTime"></div>
+          <a href="index.html" target="_blank" class="admin-logo-link">
+            <i class="fa fa-external-link-alt"></i> Live Site
+          </a>
+        </div>
+      </header>
+
+      <!-- ===== DASHBOARD TAB ===== -->
+      <main id="dashboardView" class="tab-content active">
+        <div class="tab-header">
+          <h2>Dashboard Overview</h2>
+          <p>Welcome back! Here's what's happening with your store.</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card stat-gold">
+            <div class="stat-icon"><i class="fa fa-box"></i></div>
+            <div class="stat-body">
+              <div class="stat-value" id="statProducts">—</div>
+              <div class="stat-label">Total Products</div>
+            </div>
+          </div>
+          <div class="stat-card stat-blue">
+            <div class="stat-icon"><i class="fa fa-tags"></i></div>
+            <div class="stat-body">
+              <div class="stat-value" id="statCategories">—</div>
+              <div class="stat-label">Categories</div>
+            </div>
+          </div>
+          <div class="stat-card stat-green">
+            <div class="stat-icon"><i class="fa fa-shopping-bag"></i></div>
+            <div class="stat-body">
+              <div class="stat-value" id="statOrders">—</div>
+              <div class="stat-label">Total Orders</div>
+            </div>
+          </div>
+          <div class="stat-card stat-purple">
+            <div class="stat-icon"><i class="fa fa-image"></i></div>
+            <div class="stat-body">
+              <div class="stat-value" id="statBanners">—</div>
+              <div class="stat-label">Banners</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <h3>Quick Actions</h3>
+          <div class="qa-grid">
+            <button class="qa-btn" onclick="switchTab('products');setTimeout(()=>document.getElementById('addProductBtn').click(),300);">
+              <i class="fa fa-plus"></i>Add Product
+            </button>
+            <button class="qa-btn" onclick="switchTab('categories');setTimeout(()=>document.getElementById('addCatBtn').click(),300);">
+              <i class="fa fa-tags"></i>Add Category
+            </button>
+            <button class="qa-btn" onclick="switchTab('banners');setTimeout(()=>openBannerModal('hero'),300);">
+              <i class="fa fa-image"></i>Upload Banner
+            </button>
+            <button class="qa-btn" onclick="switchTab('orders')">
+              <i class="fa fa-list"></i>View Orders
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Products -->
+        <div class="card" style="margin-top:28px;">
+          <div class="card-header-bar">
+            <h3>Recent Products</h3>
+            <button class="btn-text" onclick="switchTab('products')">View All <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Image</th><th>Title</th><th>Price</th><th>Stock</th><th>Category</th></tr></thead>
+              <tbody id="dashRecentProducts"><tr><td colspan="5" class="empty-cell">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <!-- ===== PRODUCTS TAB ===== -->
+      <main id="productsView" class="tab-content">
+        <div class="tab-header tab-header-row">
+          <div>
+            <h2>Product Management</h2>
+            <p>Manage your jewellery catalogue</p>
+          </div>
+          <button id="addProductBtn" class="btn-primary"><i class="fa fa-plus"></i> Add Product</button>
+        </div>
+
+        <div class="card">
+          <div class="card-header-bar">
+            <div class="table-search">
+              <i class="fa fa-search"></i>
+              <input type="text" id="productSearch" placeholder="Search products...">
+            </div>
+            <div id="productsCount" style="font-size:13px;color:var(--text-light);"></div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Category</th>
+                  <th>Featured</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productTableBody">
+                <tr><td colspan="7" class="empty-cell"><i class="fa fa-spinner fa-spin"></i> Loading products...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <!-- ===== CATEGORIES TAB ===== -->
+      <main id="categoriesView" class="tab-content">
+        <div class="tab-header tab-header-row">
+          <div>
+            <h2>Category Management</h2>
+            <p>Organise your jewellery categories</p>
+          </div>
+          <button id="addCatBtn" class="btn-primary"><i class="fa fa-plus"></i> Add Category</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>#</th><th>Category Name</th><th>Slug</th><th>Actions</th></tr></thead>
+              <tbody id="categoryTableBody">
+                <tr><td colspan="4" class="empty-cell"><i class="fa fa-spinner fa-spin"></i> Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <!-- ===== BANNERS TAB ===== -->
+      <main id="bannersView" class="tab-content">
+        <div class="tab-header">
+          <h2>Banner Management</h2>
+          <p>Manage hero slides and promotional banners</p>
+        </div>
+
+        <div class="card" style="margin-bottom:24px;">
+          <div class="card-header-bar">
+            <h3><i class="fa fa-images"></i> Hero Slider Images</h3>
+            <button class="btn-primary btn-sm" onclick="openBannerModal('hero')"><i class="fa fa-plus"></i> Add Slide</button>
+          </div>
+          <div id="heroList" class="banner-grid"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header-bar">
+            <h3><i class="fa fa-rectangle-ad"></i> Promo Banners</h3>
+            <button class="btn-primary btn-sm" onclick="openBannerModal('promo')"><i class="fa fa-plus"></i> Add Promo</button>
+          </div>
+          <div id="promoList" class="banner-grid"></div>
+        </div>
+      </main>
+
+      <!-- ===== ORDERS TAB ===== -->
+      <main id="ordersView" class="tab-content">
+        <div class="tab-header tab-header-row">
+          <div>
+            <h2>Order Management</h2>
+            <p>Track and manage customer orders</p>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <select id="orderStatusFilter" class="filter-select">
+              <option value="">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order #</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="orderTableBody">
+                <tr><td colspan="7" class="empty-cell"><i class="fa fa-spinner fa-spin"></i> Loading orders...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+    </div><!-- /main-wrapper -->
+  </div><!-- /dashboardSection -->
+
+
+  <!-- ===== PRODUCT MODAL ===== -->
+  <div id="productModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Product</h2>
+        <button id="closeModalBtn" class="modal-close"><i class="fa fa-times"></i></button>
+      </div>
+      <form id="productForm" class="modal-form">
+        <input type="hidden" name="id" id="prodId">
+        <div class="form-group">
+          <label>Product Title *</label>
+          <input type="text" name="title" id="prodTitle" placeholder="e.g. 22K Gold Bridal Necklace" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price (₹) *</label>
+            <input type="number" name="price" id="prodPrice" placeholder="25000" required>
+          </div>
+          <div class="form-group">
+            <label>Stock Quantity</label>
+            <input type="number" name="stock" id="prodStock" value="1" min="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <div style="display:flex;gap:10px;">
+            <select name="category" id="prodCategory" style="flex:1;">
+              <option value="">— Select Category —</option>
+            </select>
+            <button type="button" class="btn-icon" onclick="openCatModal()" title="Add new category"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea name="desc" id="prodDesc" rows="3" placeholder="Describe this product..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Product Images</label>
+          <div class="file-upload-area" id="fileUploadArea">
+            <i class="fa fa-cloud-upload-alt"></i>
+            <p>Click to upload or drag & drop</p>
+            <small>JPG, PNG up to 5MB each</small>
+            <input type="file" name="images" id="prodImages" multiple accept="image/*">
+          </div>
+          <div id="imagePreview" class="preview-area"></div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="featured" id="prodFeatured">
+            <span class="checkmark"></span>
+            Mark as Featured Product (shows on homepage)
+          </label>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">
+          <i class="fa fa-save"></i> Save Product
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORY MODAL ===== -->
+  <div id="catModal" class="modal-overlay">
+    <div class="modal-box" style="max-width:420px;">
+      <div class="modal-header">
+        <h2 id="catModalTitle">Add Category</h2>
+        <button onclick="document.getElementById('catModal').classList.remove('open')" class="modal-close"><i class="fa fa-times"></i></button>
+      </div>
+      <form id="catForm" class="modal-form">
+        <input type="hidden" name="id" id="catId">
+        <div class="form-group">
+          <label>Category Name *</label>
+          <input type="text" name="name" id="catName" placeholder="e.g. Gold Rings" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;"><i class="fa fa-save"></i> Save Category</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== BANNER MODAL ===== -->
+  <div id="bannerModal" class="modal-overlay">
+    <div class="modal-box" style="max-width:420px;">
+      <div class="modal-header">
+        <h2 id="bannerModalTitle">Add Banner</h2>
+        <button onclick="document.getElementById('bannerModal').classList.remove('open')" class="modal-close"><i class="fa fa-times"></i></button>
+      </div>
+      <form id="bannerForm" class="modal-form">
+        <div class="form-group">
+          <label>Section</label>
+          <select name="section" id="bannerSection" required>
+            <option value="hero">Hero Slider</option>
+            <option value="promo">Promo Banner</option>
+          </select>
+        </div>
+        <div class="form-group" id="promoTypeGroup" style="display:none;">
+          <label>Promo Position</label>
+          <select id="promoType">
+            <option value="promo1">Left Banner</option>
+            <option value="promo2">Right Banner</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Banner Image *</label>
+          <div class="file-upload-area">
+            <i class="fa fa-cloud-upload-alt"></i>
+            <p>Click to choose image</p>
+            <input type="file" name="image" id="bannerImage" required accept="image/*">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Link URL (Optional)</label>
+          <input type="text" name="link" id="bannerLink" placeholder="e.g. shop.html?cat=rings">
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;"><i class="fa fa-upload"></i> Upload Banner</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== ORDER DETAIL MODAL ===== -->
+  <div id="orderModal" class="modal-overlay">
+    <div class="modal-box" style="max-width:600px;">
+      <div class="modal-header">
+        <h2>Order Details</h2>
+        <button onclick="document.getElementById('orderModal').classList.remove('open')" class="modal-close"><i class="fa fa-times"></i></button>
+      </div>
+      <div id="orderDetail" class="modal-form"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/admin.js?v=5"></script>
+</body>
+</html>

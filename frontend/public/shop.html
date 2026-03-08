@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Collection — Alankar Jewellers</title>
+  <meta name="description" content="Browse our entire collection of gold, diamond and silver jewellery. Filter by category and price." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span class="announcement-item"><i class="fa fa-truck"></i> Free Shipping on Orders Above ₹5,000</span>
+      <span class="announcement-item"><i class="fa fa-gem"></i> BIS Hallmarked Gold — Guaranteed Purity</span>
+      <span class="announcement-item"><i class="fa fa-rotate"></i> 30-Day Exchange Policy</span>
+      <span class="announcement-item"><i class="fa fa-phone"></i> +91 9411042260</span>
+      <span class="announcement-item"><i class="fa fa-truck"></i> Free Shipping on Orders Above ₹5,000</span>
+      <span class="announcement-item"><i class="fa fa-gem"></i> BIS Hallmarked Gold — Guaranteed Purity</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="images/logo-footer.png" alt="Alankar Jewellers"></a>
+      <nav class="main-nav">
+        <div class="nav-inner">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle"><i class="fa fa-moon"></i></button>
+        <a class="header-action" href="cart.html" style="position:relative;">
+          <i class="fa fa-shopping-bag"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Collection</h1>
+      <p>Discover handcrafted jewellery for every occasion</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>Shop</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Layout -->
+  <div class="container shop-layout">
+
+    <!-- Sidebar Filter -->
+    <aside class="sidebar-filter">
+      <div class="filter-title">Categories</div>
+      <ul class="filter-list" id="categoryList">
+        <li><a href="#" class="active" data-cat="">All Jewellery <span class="filter-count" id="totalCount">0</span></a></li>
+      </ul>
+
+      <div class="filter-title">Filter by Price</div>
+      <div style="margin-bottom:24px;">
+        <div id="priceLabel" style="font-size:13px;color:var(--text-light);margin-bottom:12px;">₹0 — ₹5,00,000</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <input type="number" id="priceMin" placeholder="Min ₹" value="0" style="margin:0;">
+          <input type="number" id="priceMax" placeholder="Max ₹" value="500000" style="margin:0;">
+        </div>
+        <button id="applyPrice" class="btn btn-sm" style="width:100%;margin-top:12px;">Apply Filter</button>
+      </div>
+
+      <button id="clearFilters" class="btn btn-ghost btn-sm" style="width:100%;">Clear All Filters</button>
+    </aside>
+
+    <!-- Products Area -->
+    <main>
+      <div class="shop-topbar">
+        <div class="shop-search">
+          <i class="fa fa-search"></i>
+          <input type="text" id="shopSearch" placeholder="Search jewellery...">
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div id="resultsText" style="font-size:14px;color:var(--text-light);">Loading...</div>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Default Sort</option>
+            <option value="newest">Newest First</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productsGrid" class="products-grid">
+        <!-- Products injected via JS -->
+      </div>
+
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-footer.png" alt="Alankar Jewellers" class="footer-logo" />
+          <p>The Art of Elegance — crafting timeless jewellery since 1995.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/917248131691" target="_blank" class="wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank" class="fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?cat=rings">Rings</a></li>
+            <li><a href="shop.html?cat=necklaces">Necklaces</a></li>
+            <li><a href="shop.html?cat=earrings">Earrings</a></li>
+            <li><a href="shop.html?cat=bangles">Bangles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact</h4>
+          <p><i class="fa fa-location-dot"></i> Main Market, Noorpur, UP</p>
+          <p><i class="fa fa-phone"></i> +91 9411042260</p>
+          <p><i class="fa fa-envelope"></i> info@alankarjewellers.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div class="copyright">© <span id="year"></span> Alankar Jewellers. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Social Float -->
+  <div class="social-float">
+    <a href="https://wa.me/917248131691" target="_blank" class="social-item social-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="social-item social-instagram"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <button id="scrollTop" class="scroll-top"><i class="fa fa-chevron-up"></i></button>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

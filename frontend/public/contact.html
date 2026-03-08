@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us — Alankar Jewellers</title>
+  <meta name="description" content="Get in touch with Alankar Jewellers. Visit our showroom in Noorpur, UP or send us a message." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span class="announcement-item"><i class="fa fa-clock"></i> Showroom: Tue–Sun 9AM–8PM | Mon Closed</span>
+      <span class="announcement-item"><i class="fa fa-phone"></i> +91 9411042260 | +91 6395717811</span>
+      <span class="announcement-item"><i class="fa fa-location-dot"></i> Main Market, Noorpur, UP — 246734</span>
+      <span class="announcement-item"><i class="fa fa-clock"></i> Showroom: Tue–Sun 9AM–8PM | Mon Closed</span>
+      <span class="announcement-item"><i class="fa fa-phone"></i> +91 9411042260 | +91 6395717811</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="images/logo-footer.png" alt="Alankar Jewellers"></a>
+      <nav class="main-nav">
+        <div class="nav-inner">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle"><i class="fa fa-moon"></i></button>
+        <a class="header-action" href="cart.html" style="position:relative;">
+          <i class="fa fa-shopping-bag"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p>We'd love to hear from you. Visit our showroom or send a message.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>Contact</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Body -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info Card -->
+        <div class="contact-info-card reveal">
+          <h2>Showroom Info</h2>
+          <p>Come visit us and browse our full collection in person.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-location-dot"></i></div>
+            <div>
+              <h4>Our Showroom</h4>
+              <p>Alankar Jewellers, Main Market,<br>Noorpur, Uttar Pradesh — 246734</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-phone"></i></div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 9411042260<br>+91 6395717811</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p>info@alankarjewellers.com<br>sales@alankarjewellers.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-clock"></i></div>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>Tuesday – Sunday: 9:00 AM – 8:00 PM<br><strong style="color:var(--gold);">Monday: Closed</strong></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/917248131691" target="_blank" style="color:var(--gold);">Chat with us on WhatsApp</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="contact-form-card reveal reveal-delay-2">
+          <h2 style="margin-bottom:8px;">Send a Message</h2>
+          <p style="margin-bottom:30px;">Fill in the form and we'll get back to you within 24 hours.</p>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-input-group">
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="Priya Sharma" required>
+              </div>
+              <div class="form-input-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" placeholder="+91 9XXXXXXXXX">
+              </div>
+            </div>
+            <div class="form-input-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-input-group">
+              <label>Subject</label>
+              <input type="text" name="subject" placeholder="Inquiry about gold necklace..." required>
+            </div>
+            <div class="form-input-group">
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width:100%;justify-content:center;"><i class="fa fa-paper-plane"></i> Send Message</button>
+          </form>
+          <div id="formSuccess" style="display:none;margin-top:20px;padding:16px;background:rgba(201,168,76,0.1);border:1px solid var(--gold);border-radius:10px;color:var(--gold);text-align:center;">
+            <i class="fa fa-check-circle"></i> Thank you! Your message has been sent. We'll get back to you shortly.
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-container reveal" style="margin-top:70px;">
+        <iframe
+          src="https://maps.google.com/maps?q=Noorpur+Bijnor+Uttar+Pradesh&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen="" loading="lazy" title="Showroom Location">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-footer.png" alt="Alankar Jewellers" class="footer-logo" />
+          <p>The Art of Elegance — crafting timeless jewellery since 1995.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/917248131691" target="_blank" class="wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank" class="fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?cat=rings">Rings</a></li>
+            <li><a href="shop.html?cat=necklaces">Necklaces</a></li>
+            <li><a href="shop.html?cat=earrings">Earrings</a></li>
+            <li><a href="shop.html?cat=bangles">Bangles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact</h4>
+          <p><i class="fa fa-location-dot"></i> Main Market, Noorpur, UP</p>
+          <p><i class="fa fa-phone"></i> +91 9411042260</p>
+          <p><i class="fa fa-envelope"></i> info@alankarjewellers.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div class="copyright">© <span id="year"></span> Alankar Jewellers. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="social-float">
+    <a href="https://wa.me/917248131691" target="_blank" class="social-item social-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://instagram.com/rajput_anuj_rana" target="_blank" class="social-item social-instagram"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+  <button id="scrollTop" class="scroll-top"><i class="fa fa-chevron-up"></i></button>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const data = Object.fromEntries(fd.entries());
+      // Show success (in production, this would POST to an API)
+      e.target.style.opacity = '0.5';
+      e.target.style.pointerEvents = 'none';
+      setTimeout(() => {
+        document.getElementById('formSuccess').style.display = 'block';
+        e.target.reset();
+        e.target.style.opacity = '1';
+        e.target.style.pointerEvents = 'auto';
+      }, 600);
+    });
+  </script>
+</body>
+</html>

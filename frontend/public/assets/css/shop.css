@@ -1,0 +1,55 @@
+/* shop.css - shop page specific styles */
+
+.page-hero{background:#f7f7f7;padding:36px 0;margin-bottom:18px}
+.page-hero h1{font-size:40px;text-align:center;margin-bottom:6px;color:#111}
+.breadcrumb{color:#777;text-align:center}
+
+/* layout */
+.shop-layout{display:grid;grid-template-columns:280px 1fr;gap:28px;padding-bottom:40px}
+.shop-sidebar{padding-top:6px}
+.shop-main{min-height:400px}
+
+/* widgets */
+.widget{background:#fff;padding:18px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.03);margin-bottom:18px}
+.widget h3{font-size:16px;margin-bottom:12px;color:#222}
+.category-list{list-style:none;padding:0;margin:0}
+.category-list li{padding:8px 0}
+.category-list a{color:#666;text-decoration:none}
+.category-list a:hover{color:#c59d5f}
+
+/* toolbar */
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.results{color:#666}
+.right-tools select{padding:8px;border-radius:6px;border:1px solid #ddd}
+
+/* grid (3 per desktop, 2 tablet, 1 mobile) */
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.product-card{background:#fff;border-radius:8px;padding:12px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+.product-card img{width:100%;height:320px;object-fit:cover;border-radius:6px}
+.product-card h4{font-size:16px;margin:12px 0;color:#333}
+.product-card .price{color:var(--accent);font-weight:700;margin-top:6px}
+.product-card .meta{color:#888;font-size:13px}
+
+/* pager */
+.pager{display:flex;justify-content:center;margin-top:30px;gap:8px}
+.pager button{border:1px solid #ddd;padding:8px 12px;border-radius:6px;background:#fff}
+.pager button.active{border-color:var(--accent);background:linear-gradient(#fff,#fff);color:var(--accent)}
+
+/* buttons */
+.btn{background:#111;color:#fff;padding:10px 16px;border:none;border-radius:6px;cursor:pointer}
+.btn.ghost{background:transparent;color:#444;border:1px solid #ddd}
+
+/* responsive */
+@media (max-width: 1000px){
+  .shop-grid{grid-template-columns:repeat(2,1fr)}
+  .shop-layout{grid-template-columns:220px 1fr;gap:18px}
+  .product-card img{height:260px}
+}
+@media (max-width: 700px){
+  .shop-layout{grid-template-columns:1fr; padding: 0 12px}
+  .shop-sidebar{order:2}
+  .shop-main{order:1}
+  .shop-grid{grid-template-columns:1fr}
+  .product-card img{height:200px}
+  .toolbar{flex-direction:column;align-items:flex-start;gap:10px}
+}
