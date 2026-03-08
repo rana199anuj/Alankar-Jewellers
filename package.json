@@ -1,0 +1,13 @@
+{
+  "name": "alankar-jewellers-root",
+  "version": "1.0.0",
+  "description": "Root package for Render.com deployment",
+  "main": "backend/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "cd backend && npm install",
+    "start": "node backend/server.js"
+  }
+}
