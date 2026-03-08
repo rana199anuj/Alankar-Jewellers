@@ -2,32 +2,24 @@ const express = require('express');
 const router = express.Router();
 const Banner = require('../models/Banner');
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-const auth = require('../middleware/auth'); // Import auth
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
+const auth = require('../middleware/auth'); 
 
-// Auth middleware (assuming it's in a common file or duplicated, let's try to require it if possible, strictly we need to know where it is.
-// Looking at server.js (viewed previously), auth middleware was inline or imported.
-// I'll grab the auth middleware from a standard location or assume checking JWT.
-// For now, I'll rely on the main server.js to pass 'auth' or I will implement a basic check.
-// Actually, let's look at how other routes use auth.
-// viewed `backend/routes/categories.js` -> `router.post('/', auth, ...)`
-// So `auth` is passed or imported. I need to know where `auth` middleware is defined.
-// It is likely in `middleware/auth.js` or `server.js`.
-// I'll assume I can import it if I find it.
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: 'alankar-jewellers',
+  api_key: '899141652323614',
+  api_secret: 'zSlNCFXMj5FR9umPXHvBIyc4sqQ'
+});
 
-// Let's implement the logic first.
-
-// Image Upload Config
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const dir = 'uploads/';
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir);
-        cb(null, dir);
-    },
-    filename: (req, file, cb) => {
-        cb(null, 'banner-' + Date.now() + path.extname(file.originalname));
-    }
+// Cloudinary Storage Config
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'alankar-banners',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
+  },
 });
 const upload = multer({ storage });
 
@@ -46,9 +38,8 @@ router.get('/', async (req, res) => {
 // Since I cannot easily see where auth is, I will define a placeholder or rely on the user to ensure server.js imports this.
 // Wait, I can see server.js later.
 router.post('/', auth, upload.single('image'), async (req, res) => {
-    // Simple check for now, real auth should be applied in server.js mounting or here
     const { section, title, link } = req.body;
-    const imageUrl = req.file ? `uploads/${req.file.filename}` : '';
+    const imageUrl = req.file ? req.file.path : ''; // Cloudinary URL is in req.file.path
 
     if (!imageUrl) return res.status(400).json({ message: 'Image required' });
 
