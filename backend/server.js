@@ -43,4 +43,13 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/public/index.html'));
 });
 
+// Global API Error Handler (prevents HTML crash pages)
+app.use((err, req, res, next) => {
+    console.error('Global Error:', err);
+    if (req.path.startsWith('/api')) {
+        return res.status(500).json({ message: err.message || 'Internal Server Error', error: err.toString() });
+    }
+    res.status(500).send('Internal Server Error');
+});
+
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
