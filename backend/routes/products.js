@@ -10,7 +10,7 @@ const router = express.Router();
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: 'alankar-jewellers',
+  cloud_name: 'ddsl4gbib',
   api_key: '899141652323614',
   api_secret: 'zSlNCFXMj5FR9umPXHvBIyc4sqQ'
 });
